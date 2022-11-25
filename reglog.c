@@ -51,27 +51,30 @@ void login(void)
 
     printf("\nPlease Enter your login credentials below\n\n");
     printf("Username:  ");
-    fgets(username, 30, stdin);
-    printf("\nPassword: ");
-    printf("\n");
-    fgets(password, 20, stdin);
+    scanf("%s", username);
+    // fgets(username, 30, stdin);
+    printf("\nPassword: \n ");
+    scanf("%s", password);
+    // fgets(password, 20, stdin);
 
-    while (fread(&l, sizeof(l), 1, log))
+    while (fread(&l, sizeof(l), 0, log))
     {
+        rewind(log);
         if (strcmp(username, l.username) == 0 && strcmp(password, l.password) == 0)
-
         {
-            fprintf(log,"\nSuccessful Login\n");
+            printf("\nSuccessful Login\n");
         }
         else
         {
             printf("\nIncorrect Login Details\nPlease enter the correct credentials\n");
         }
-    }
+        }
+    rewind(log);
 
     fclose(log);
-
-    return;
+    printf("******************************************* ");
+    printf("error ");
+    printf("***************************************** ");
 }
 
 void registration(void)
@@ -91,7 +94,7 @@ void registration(void)
     printf("\n We need to enter some details for registration.\n\n");
     printf("\nEnter First Name:\n");
     scanf("%s", l.fname);
-    printf("Enter Surname:\n");
+    printf("Enter last name:\n");
     scanf("%s", l.lname);
 
     printf("Thank you.\nNow please choose a username and password as credentials for system login.\nEnsure the username is no more than 30 characters long.\nEnsure your password is at least 8 characters long and contains lowercase, uppercase, numerical and special character values.\n");
@@ -100,9 +103,9 @@ void registration(void)
     scanf("%s", l.username);
     printf("\nEnter Password:\n");
     scanf("%s", l.password);
-    
-	fprintf(log,"name : %s , lastname : %s ,  username : %s, password : %s \n", l.fname,l.lname,l.username, l.password );
-    //fprintf(&l, sizeof(l), 1, log);
+
+    fprintf(log, " %s  %s  %s  %s \n", l.fname, l.lname, l.username, l.password);
+    // fprintf(&l, sizeof(l), 1, log);
     fclose(log);
 
     printf("\nConfirming details...\n...\nWelcome, %s!\n\n", firstname);
