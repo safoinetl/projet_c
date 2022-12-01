@@ -148,7 +148,7 @@ static void activate(GtkApplication *app, gpointer user_data)
      lastnamelabel = gtk_label_new("Last name:");
 
      lastname = gtk_entry_new();
-     gtk_entry_set_placeholder_text(GTK_ENTRY(lastname), "your last name");
+     gtk_entry_set_placeholder_text(GTK_ENTRY(lastname), "Last name");
 
      usernamelabel = gtk_label_new("Username:");
 
@@ -164,7 +164,7 @@ static void activate(GtkApplication *app, gpointer user_data)
      adduser = gtk_button_new_with_label("sign up");
      g_signal_connect(adduser, "clicked", G_CALLBACK(signin_button_clicked), box);
 
-     gobacktologin = gtk_button_new_with_label("go back to login");
+     gobacktologin = gtk_button_new_with_label("Go back to login");
      g_signal_connect(gobacktologin, "clicked", G_CALLBACK(goback_sigin_in_button), box);
 
      aletsginin = gtk_label_new(" ");
@@ -186,7 +186,7 @@ static void logged_in(GtkButton *butt, gpointer boxs)
 {
      gtk_container_remove(GTK_CONTAINER(window1), boxs);
 
-     gtk_window_set_title(GTK_WINDOW(window1), "welcome");
+     gtk_window_set_title(GTK_WINDOW(window1), "Welcome");
      gtk_window_set_default_size(GTK_WINDOW(window1), 500, 600);
 
      GtkWidget *box;
